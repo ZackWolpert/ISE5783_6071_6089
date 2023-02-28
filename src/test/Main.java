@@ -3,6 +3,9 @@ package test;
 import static java.lang.System.out;
 import static primitives.Util.isZero;
 
+import geometries.Cylinder;
+import geometries.Plane;
+import geometries.Sphere;
 import primitives.Point;
 import primitives.Vector;
 

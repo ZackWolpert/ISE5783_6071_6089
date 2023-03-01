@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd0c741-a68b-4882-a693-b95be38f607e" name="Changes" comment="preend commit">
+    <list default="true" id="fdd0c741-a68b-4882-a693-b95be38f607e" name="Changes" comment="PR01">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +14,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ff2a6e91-4635-4bfc-b110-3a418468564f" />
+        <option name="url" value="https://github.com/ZackWolpert/ISE5783_6071_6089.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -71,6 +84,7 @@
       <workItem from="1677597471794" duration="5075000" />
       <workItem from="1677617235626" duration="22000" />
       <workItem from="1677619542816" duration="3000" />
+      <workItem from="1677684026322" duration="515000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1677014677581</created>
@@ -93,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677602433913</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="PR01">
+      <created>1677684305041</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677684305041</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +135,7 @@
     <MESSAGE value="Second Commit" />
     <MESSAGE value="pre end commit" />
     <MESSAGE value="preend commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="preend commit" />
+    <MESSAGE value="PR01" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR01" />
   </component>
 </project>

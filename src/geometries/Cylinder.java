@@ -24,7 +24,7 @@ public class Cylinder extends Tube {
     /**
      * Returns the height of the cylinder.
      *
-     * @return the height of the cylinder.
+     * @return the height of the cylinder .
      */
     public double getHeight() {
         return height;

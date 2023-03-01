@@ -2,7 +2,7 @@ package primitives;
 
 /**
  * A Vector class that represents a three-dimensional vector in space.
- * subclass of Point .
+ * subclass of Point.
  */
 public class Vector extends Point {
     /**

@@ -42,7 +42,7 @@ public class Plane implements Geometry {
     /**
      * Returns the normal vector of the plane.
      *
-     * @return the normal vector of the plane.
+     * @return the normal vector of the plane .
      */
     public Vector getNormal() {
         return normal;

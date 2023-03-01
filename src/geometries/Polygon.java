@@ -7,7 +7,7 @@ import java.util.List;
 import primitives.Point;
 import primitives.Vector;
 
-/** Polygon class represents two-dimensional polygon in 3D Cartesian coordinate
+/** Polygon class represents two-dimensional polygon in 3D Cartesian coordinate.
  * system
  * @author Dan */
 public class Polygon implements Geometry{

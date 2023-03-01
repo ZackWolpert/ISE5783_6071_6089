@@ -11,8 +11,8 @@ public interface Geometry {
     /**
      * Returns the normal vector of the geometry object at the specified point.
      *
-     * @param myPoint the point on the geometry object
-     * @return the normal vector of the geometry object at the specified point
+     * @param myPoint the point on the geometry object.
+     * @return the normal vector of the geometry object at the specified point.
      */
     Vector getNormal(Point myPoint);
 }

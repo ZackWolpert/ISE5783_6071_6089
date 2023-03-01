@@ -30,7 +30,7 @@ public class Ray {
     /**
      * Returns the direction vector of the ray.
      *
-     * @return the direction vector of the ray
+     * @return the direction vector of the ray.
      */
     public Vector getDir() {
         return dir;

@@ -18,7 +18,7 @@ public class Tube extends RadialGeometry {
      * Constructs a Tube object with the specified radius and axis ray.
      *
      * @param radius  the radius of the tube.
-     * @param axisRay the axis ray of the tube.
+     * @param axisRay the axis ray of the tube .
      */
     public Tube(double radius, Ray axisRay) {
         super(radius);

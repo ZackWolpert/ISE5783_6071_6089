@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fdd0c741-a68b-4882-a693-b95be38f607e" name="Changes" comment="PR01">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +85,7 @@
       <workItem from="1677597471794" duration="5075000" />
       <workItem from="1677617235626" duration="22000" />
       <workItem from="1677619542816" duration="3000" />
-      <workItem from="1677684026322" duration="515000" />
+      <workItem from="1677684026322" duration="652000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1677014677581</created>
@@ -114,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677684305041</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="PR01">
+      <created>1677684551813</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677684551813</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

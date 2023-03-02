@@ -6,7 +6,8 @@ import primitives.Vector;
 /**
  * The Sphere class represents a sphere shape in three-dimensional space.
  * It is a subclass of the RadialGeometry class and adds a center property to represent the center of the sphere.
- */
+ * important L sphere equation : (x-firstCoordinate)^2 + (y-secondCoordinate)^2 + (z-thirdCoordinate)^2 = radius, while (firstCoordinate,secondCoordinate,thirdCoordinate) represents the center of the sphere.
+ * */
 public class Sphere extends RadialGeometry {
     private final Point center;
 
@@ -23,6 +24,7 @@ public class Sphere extends RadialGeometry {
 
     @Override
     public Vector getNormal(Point myPoint) {
+      // return new Vector(myPoint.xyz.d1*2,myPoint.xyz.d2*2,myPoint.xyz.d3*2).normalize();
         return null;
     }
 }

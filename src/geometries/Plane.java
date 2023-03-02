@@ -15,7 +15,9 @@ public class Plane implements Geometry {
      * @param thirdPoint  the third reference point.
      */
     public Plane(Point firstPoint, Point secondPoint, Point thirdPoint) {
-        this.normal = null;
+        Vector v1 = secondPoint.subtract(firstPoint);
+        Vector v2 = thirdPoint.subtract(firstPoint);
+        this.normal = v1.crossProduct(v2).normalize();
         this.p0 = firstPoint; // נקודות ייחוס למישור
     }
 

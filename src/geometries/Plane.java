@@ -46,6 +46,7 @@ public class Plane implements Geometry {
      *
      * @return the normal vector of the plane .
      */
+
     public Vector getNormal() {
         return normal;
     }

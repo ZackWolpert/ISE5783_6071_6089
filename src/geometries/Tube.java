@@ -4,6 +4,8 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import static primitives.Util.isZero;
+
 /**
  * The Tube class represents a tube shape in three-dimensional space.
  * It is a subclass of the RadialGeometry class and adds an axis ray property to represent the axis of the tube.
@@ -25,9 +27,27 @@ public class Tube extends RadialGeometry {
         this.axisRay = axisRay;
     }
 
+    /**
+     * returns the ray of the tube
+     *
+     * @return the ray of the tube
+     */
+    public Ray getAxisRay() {
+        return axisRay;
+    }
+
+    /**
+     * returns the radius of the tube
+     *
+     * @return the radius of the tube
+     */
+    public double getRadius() {
+        return radius;
+    }
+
     @Override
     public Vector getNormal(Point myPoint) {
-        return null;
+        return  null;
     }
 
 }

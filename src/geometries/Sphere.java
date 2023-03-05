@@ -1,6 +1,7 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
 
 /**
@@ -22,9 +23,19 @@ public class Sphere extends RadialGeometry {
         this.center = center;
     }
 
+    /**
+     * returns the center of the Sphere
+     *
+     * @return the center of the Sphere
+     */
+    public Point getCenter() {
+        return center;
+    }
+
     @Override
     public Vector getNormal(Point myPoint) {
-      // return new Vector(myPoint.xyz.d1*2,myPoint.xyz.d2*2,myPoint.xyz.d3*2).normalize();
+        // return new Vector(myPoint.xyz.d1*2,myPoint.xyz.d2*2,myPoint.xyz.d3*2).normalize();
+        // return new Vector(myPoint.subtract(new Vector(0,0,0)).normalize());
         return null;
     }
 }

@@ -1,5 +1,7 @@
 package primitives;
 
+import static primitives.Util.isZero;
+
 /**
  * A Vector class that represents a three-dimensional vector in space.
  * subclass of Point.
@@ -67,8 +69,7 @@ public class Vector extends Point {
      * @return the new vector that is the result of scaling this vector by the given double
      */
     public Vector scale(double myDouble) {
-        return new Vector(xyz.scale(myDouble));
-    }
+        return new Vector(xyz.scale(myDouble)); }
 
     /**
      * Returns the cross product of this vector and the given vector.
@@ -77,7 +78,9 @@ public class Vector extends Point {
      * @return the cross product of this vector and the given vector
      */
     public Vector crossProduct(Vector myVector) {
-        return new Vector(xyz.d2 * myVector.xyz.d3 - xyz.d3 * myVector.xyz.d2, xyz.d3 * myVector.xyz.d1 - xyz.d1 * myVector.xyz.d3, xyz.d1 * myVector.xyz.d2 - xyz.d2 * myVector.xyz.d1);
+        return new Vector(xyz.d2 * myVector.xyz.d3 - xyz.d3 * myVector.xyz.d2,
+                xyz.d3 * myVector.xyz.d1 - xyz.d1 * myVector.xyz.d3,
+                xyz.d1 * myVector.xyz.d2 - xyz.d2 * myVector.xyz.d1);
     }
 
     /**

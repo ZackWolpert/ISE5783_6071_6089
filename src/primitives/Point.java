@@ -56,7 +56,9 @@ public class Point {
      * @return new Vector made from subtract of the two points .
      */
     public Vector subtract(Point myPoint) {
-        return new Vector(Util.alignZero((this.xyz.subtract(myPoint.xyz)).d1), Util.alignZero((this.xyz.subtract(myPoint.xyz)).d2), Util.alignZero((this.xyz.subtract(myPoint.xyz)).d3));
+        return new Vector(Util.alignZero((this.xyz.subtract(myPoint.xyz)).d1),
+                Util.alignZero((this.xyz.subtract(myPoint.xyz)).d2),
+                Util.alignZero((this.xyz.subtract(myPoint.xyz)).d3));
     }
 
     /**
@@ -76,7 +78,9 @@ public class Point {
      * @return the squared distance between this point and myPoint.
      */
     public double distanceSquared(Point myPoint) {
-        return (this.xyz.d1 - myPoint.xyz.d1) * (this.xyz.d1 - myPoint.xyz.d1) + (this.xyz.d2 - myPoint.xyz.d2) * (this.xyz.d2 - myPoint.xyz.d2) + (this.xyz.d3 - myPoint.xyz.d3) * (this.xyz.d3 - myPoint.xyz.d3);
+        return (this.xyz.d1 - myPoint.xyz.d1) * (this.xyz.d1 - myPoint.xyz.d1) +
+                (this.xyz.d2 - myPoint.xyz.d2) * (this.xyz.d2 - myPoint.xyz.d2) +
+                (this.xyz.d3 - myPoint.xyz.d3) * (this.xyz.d3 - myPoint.xyz.d3);
     }
 
     /**

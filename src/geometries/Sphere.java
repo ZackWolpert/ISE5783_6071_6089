@@ -34,6 +34,9 @@ public class Sphere extends RadialGeometry {
 
     @Override
     public Vector getNormal(Point myPoint) {
-        return null;
+        // assuming the point is on the surface od the sphere
+        Point myZeroPoint = new Point(0,0,0); // need to use this to get myPoint as a vector, in order to calculate unit normal vector of sphere
+        return myPoint.subtract(myZeroPoint).scale(2).normalize();
+
     }
 }

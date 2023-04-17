@@ -1,12 +1,40 @@
 package geometries;
 
 import org.junit.jupiter.api.Test;
+import primitives.Point;
+import primitives.Ray;
+import primitives.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * Unit tests for geometries.Tube class
+ * @author Zack and Nathan Wolpert
+ *
+ */
 class TubeTest {
 
+    /**
+     * different geometries/primitives variables for the tests
+     */
+    Ray myTestRay = new Ray(new Point(0,0,0), new Vector(0, 1, 0));
+    Tube myTestTube = new Tube(1, myTestRay);
+
+    /**
+     * Test method for {@link geometries.Tube#getNormal(primitives.Point)}.
+     */
     @Test
-    void getNormal() {
+    void testGetNormal() {
+        // ============ Equivalence Partitions Tests ==============
+        // T01: Test that getNormal function on Tube is calculated correctly - for points on side of Tube
+        Point p1 = new Point(0, 3, 1);
+        assertEquals(new Vector(0, 0, 1), myTestTube.getNormal(p1),
+                "Tube getNormal function returns wrong normal");
+
+        // =============== Boundary Values Tests ==================
+        // T11: Test that getNormal function on Tube is calculated correctly  - for points on middle circle of Tube
+        Point p2 = new Point(0, 0, 1);
+        assertEquals(new Vector(0, 0, 1), myTestTube.getNormal(p2),
+                "Tube getNormal function returns wrong normal");
     }
+
 }

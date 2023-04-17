@@ -1,6 +1,10 @@
 package geometries;
 
+import primitives.Point;
 import primitives.Ray;
+import primitives.Vector;
+
+import static primitives.Util.isZero;
 
 /**
  * The Cylinder class represents a cylinder shape in three-dimensional space.
@@ -16,6 +20,7 @@ public class Cylinder extends Tube {
      * @param axisRay the axis ray of the cylinder.
      * @param height  the height of the cylinder.
      */
+
     public Cylinder(Double radius, Ray axisRay, double height) {
         super(radius, axisRay);
         this.height = height;
@@ -28,5 +33,19 @@ public class Cylinder extends Tube {
      */
     public double getHeight() {
         return height;
+    }
+
+    @Override
+    public Vector getNormal(Point myPoint) {
+        // we assume point is on the cylinder, so we check if it is on top, bottom or side.
+        Point myCenterBottomPoint = axisRay.getP0();
+        Point myCenterTopPoint = axisRay.getP0().add(axisRay.getDir().scale(height));
+        Vector myRayDir = axisRay.getDir();
+        if (myPoint.equals(myCenterTopPoint) || isZero(myPoint.subtract(myCenterTopPoint).dotProduct(myRayDir)))  // on the top
+            return myRayDir;
+        else if (myPoint.equals(myCenterBottomPoint) || isZero(myPoint.subtract(myCenterBottomPoint).dotProduct(myRayDir)))  //on the bottom
+            return myRayDir.scale(-1); // same vector but opposite direction
+        else  // on the side of cylinder - just like Tube .
+            return super.getNormal(myPoint);
     }
 }

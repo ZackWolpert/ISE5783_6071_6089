@@ -16,6 +16,8 @@ class VectorTest {
      */
     Vector v1 = new Vector(1, 2, 3);
     Vector v2 = new Vector(0, 3, -2);
+    Vector v3 = new Vector(0, 3, 4);
+
 
     /**
      * Test method for {@link primitives.Vector#add(primitives.Vector)}.
@@ -24,8 +26,11 @@ class VectorTest {
     void testAdd() {
         // ============ Equivalence Partitions Tests ==============
         //T01: Test that the add function is calculated correctly
-        assertEquals(new Vector(1, 5, 1),(v1.add(v2)),
-                "Vector add function does not work properly");
+        assertEquals(
+                new Vector(1, 5, 1),
+                v1.add(v2),
+                "Vector add function does not work properly"
+        );
 
         // =============== Boundary Values Tests ==================
         // T11: Test that the add function off opposites vectors throws exception
@@ -97,7 +102,7 @@ class VectorTest {
     void testLength() {
         // ============ Equivalence Partitions Tests ==============
         // T01: Test that length function value is calculated correctly
-        assertEquals(Math.sqrt(14), v1.length(), 0.00001,
+        assertEquals(5, v3.length(), 0.00001,
                 "length function gave wrong value");
     }
 

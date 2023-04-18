@@ -51,13 +51,13 @@ class PlaneTest {
     @Test
     void testGetNormal() {
         Point p1 = new Point(1, 0, 0);
-        Plane myPlane = new Plane(p1, new Point(0, 1, 0),
+        Plane plane = new Plane(p1, new Point(0, 1, 0),
                 new Point(0, 0, 0));
 
         // ============ Equivalence Partitions Tests ==============
         // T01: Test that getNormal function on Plane is calculated correctly
         assertEquals(new Vector(0,0,1),
-             myPlane.getNormal(p1),
+             plane.getNormal(p1),
            "Plane getNormal function returns wrong normal ");
     }
 

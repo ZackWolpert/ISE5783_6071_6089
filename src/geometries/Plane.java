@@ -10,26 +10,26 @@ public class Plane implements Geometry {
     /**
      * Constructs a new Plane object with three reference points - one of them we choose as main reference point.
      *
-     * @param firstPoint  the first reference point - and the reference point we chose as the main one of the plane.
-     * @param secondPoint the second reference point.
-     * @param thirdPoint  the third reference point.
+     * @param p1  the first reference point - and the reference point we chose as the main one of the plane.
+     * @param p2 the second reference point.
+     * @param p3  the third reference point.
      */
-    public Plane(Point firstPoint, Point secondPoint, Point thirdPoint) {
-        Vector v1 = secondPoint.subtract(firstPoint);
-        Vector v2 = thirdPoint.subtract(firstPoint);
+    public Plane(Point p1, Point p2, Point p3) {
+        Vector v1 = p2.subtract(p1);
+        Vector v2 = p3.subtract(p1);
         this.normal = v1.crossProduct(v2).normalize();
-        this.p0 = firstPoint; // נקודות ייחוס למישור
+        this.p0 = p1; // נקודות ייחוס למישור
     }
 
     /**
      * Constructs a new Plane object with a reference point and a normal vector.
      *
-     * @param myPoint  the reference point of the plane.
-     * @param myVector the normal vector of the plane.
+     * @param point  the reference point of the plane.
+     * @param vector the normal vector of the plane.
      */
-    public Plane(Point myPoint, Vector myVector) {
-        this.normal = myVector.normalize();
-        this.p0 = myPoint;
+    public Plane(Point point, Vector vector) {
+        this.normal = vector.normalize();
+        this.p0 = point;
     }
 
     /**
@@ -52,7 +52,7 @@ public class Plane implements Geometry {
     }
 
     @Override
-    public Vector getNormal(Point myPoint) {
+    public Vector getNormal(Point other) {
         return normal;
 
     }

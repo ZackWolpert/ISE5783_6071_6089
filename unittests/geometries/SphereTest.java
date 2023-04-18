@@ -17,11 +17,11 @@ class SphereTest {
      */
     @Test
     void testGetNormal() {
-        Sphere mySphere = new Sphere(1,new Point(0,0,0));
+        Sphere sphere = new Sphere(1,new Point(0,0,0));
         // ============ Equivalence Partitions Tests ==============
         // T01: Test that getNormal function on Sphere is calculated correctly
         Point p1 = new Point(1, 0, 0);
-        assertEquals(new Vector(1, 0, 0),mySphere.getNormal(p1),
+        assertEquals(new Vector(1, 0, 0),sphere.getNormal(p1),
                 "Sphere getNormal function returns wrong normal");
     }
 }

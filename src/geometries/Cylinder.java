@@ -36,16 +36,16 @@ public class Cylinder extends Tube {
     }
 
     @Override
-    public Vector getNormal(Point myPoint) {
+    public Vector getNormal(Point other) {
         // we assume point is on the cylinder, so we check if it is on top, bottom or side.
         Point myCenterBottomPoint = axisRay.getP0();
         Point myCenterTopPoint = axisRay.getP0().add(axisRay.getDir().scale(height));
         Vector myRayDir = axisRay.getDir();
-        if (myPoint.equals(myCenterTopPoint) || isZero(myPoint.subtract(myCenterTopPoint).dotProduct(myRayDir)))  // on the top
+        if (other.equals(myCenterTopPoint) || isZero(other.subtract(myCenterTopPoint).dotProduct(myRayDir)))  // on the top
             return myRayDir;
-        else if (myPoint.equals(myCenterBottomPoint) || isZero(myPoint.subtract(myCenterBottomPoint).dotProduct(myRayDir)))  //on the bottom
+        else if (other.equals(myCenterBottomPoint) || isZero(other.subtract(myCenterBottomPoint).dotProduct(myRayDir)))  //on the bottom
             return myRayDir.scale(-1); // same vector but opposite direction
         else  // on the side of cylinder - just like Tube .
-            return super.getNormal(myPoint);
+            return super.getNormal(other);
     }
 }

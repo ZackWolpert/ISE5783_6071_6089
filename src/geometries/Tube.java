@@ -46,15 +46,15 @@ public class Tube extends RadialGeometry {
     }
 
     @Override
-    public Vector getNormal(Point myPoint) {
-        double myDouble = axisRay.getDir().dotProduct(myPoint.subtract(axisRay.getP0()));
-        if(isZero(myDouble)){ // if it is zero than scale by zero would give error, so we don't scale .
-            Point myCenter = axisRay.getP0();
-            return (myPoint.subtract(myCenter)).normalize();
+    public Vector getNormal(Point other) {
+        double d = axisRay.getDir().dotProduct(other.subtract(axisRay.getP0()));
+        if(isZero(d)){ // if it is zero than scale by zero would give error, so we don't scale .
+            Point center = axisRay.getP0();
+            return (other.subtract(center)).normalize();
         }
         else {
-            Point myCenter = axisRay.getP0().add(axisRay.getDir().scale(myDouble));
-            return (myPoint.subtract(myCenter)).normalize();
+            Point myCenter = axisRay.getP0().add(axisRay.getDir().scale(d));
+            return (other.subtract(myCenter)).normalize();
         }
 
     }

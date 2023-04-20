@@ -4,6 +4,8 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.List;
+
 import static primitives.Util.isZero;
 
 /**
@@ -59,4 +61,14 @@ public class Tube extends RadialGeometry {
 
     }
 
+    /**
+     * Find the intersections between an intersectable object and a ray.
+     *
+     * @param ray the ray to intersect with the object.
+     * @return a List of Point objects representing the intersections.
+     */
+    @Override
+    public List<Point> findIntsersections(Ray ray) {
+        return null;
+    }
 }

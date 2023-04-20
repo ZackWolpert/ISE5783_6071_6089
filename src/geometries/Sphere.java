@@ -4,6 +4,8 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.List;
+
 /**
  * The Sphere class represents a sphere shape in three-dimensional space.
  * It is a subclass of the RadialGeometry class and adds a center property to represent the center of the sphere.
@@ -38,5 +40,16 @@ public class Sphere extends RadialGeometry {
         Point myZeroPoint = new Point(0,0,0); // need to use this to get myPoint as a vector, in order to calculate unit normal vector of sphere
         return other.subtract(myZeroPoint).scale(2).normalize();
 
+    }
+
+    /**
+     * Find the intersections between an intersectable object and a ray.
+     *
+     * @param ray the ray to intersect with the object.
+     * @return a List of Point objects representing the intersections.
+     */
+    @Override
+    public List<Point> findIntsersections(Ray ray) {
+        return null;
     }
 }

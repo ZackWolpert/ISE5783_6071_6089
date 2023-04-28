@@ -82,13 +82,13 @@ public class Polygon implements Geometry{
    public Vector getNormal(Point point) { return plane.getNormal(); }
 
    /**
-    * Find the intersections between an intersectable object and a ray.
+    * Find the intersections between a polygon and a ray.
     *
-    * @param ray the ray to intersect with the object.
+    * @param ray the ray to intersect with the polygon.
     * @return a List of Point objects representing the intersections.
     */
    @Override
-   public List<Point> findIntsersections(Ray ray) {
+   public List<Point> findIntersections(Ray ray) {
       return null;
    }
 }

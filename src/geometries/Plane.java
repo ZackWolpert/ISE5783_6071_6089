@@ -3,8 +3,12 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+import primitives.Util;
 
 import java.util.List;
+
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
 
 public class Plane implements Geometry {
     private final Point p0;
@@ -61,13 +65,28 @@ public class Plane implements Geometry {
     }
 
     /**
-     * Find the intersections between an intersectable object and a ray.
+     * Find the intersections between a plane and a ray.
      *
-     * @param ray the ray to intersect with the object.
+     * @param ray the ray to intersect with the plane.
      * @return a List of Point objects representing the intersections.
      */
     @Override
-    public List<Point> findIntsersections(Ray ray) {
-        return null;
+    public List<Point> findIntersections(Ray ray) {
+        Vector rayDir = ray.getDir();
+        Point rayP0 = ray.getP0();
+        try{
+            Vector v = p0.subtract(rayP0);
+            double denominator = rayDir.dotProduct(normal);
+            if(isZero(denominator)){
+                return  null;
+            }
+            else {
+                double t = alignZero(v.dotProduct(normal)/denominator);
+                if(isZero(t) || t < 0){return null;}
+                else{return  List.of(ray.getPoint(t));}
+            }
+        }catch (IllegalArgumentException zeroVector) {
+            return null;
+        }
     }
 }

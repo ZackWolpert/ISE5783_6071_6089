@@ -30,6 +30,21 @@ public class Point {
         this.xyz = double3;
     }
 
+    /**
+     * Gets the x coordinate of the point
+     *
+     * @return the coordinate
+     */
+    public double getX() {
+        return xyz.d1;
+    }
+    public double getY() {
+        return xyz.d2;
+    }
+    public double getZ() {
+        return xyz.d3;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

@@ -9,19 +9,36 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.*;
 
-public class Geometries implements  Intersectable{
+/**
+ * Geometries class stores the group of geometrical shapes .
+ *
+ */
+public class Geometries implements Intersectable{
     private List<Intersectable> geometriesList;
 
-    public  Geometries()
+    /**
+     * geometries default constructor - new geometriesList
+     */
+    public Geometries()
     {
         this.geometriesList = new LinkedList<>();
     }
 
+    /**
+     * Constructor using geometries
+     *
+     * @param geometries a group of geometrical shapes
+     */
     public Geometries(Intersectable... geometries){
         this.geometriesList = new LinkedList<>();
         add(geometries);
     }
 
+    /**
+     * A function which adds an object to the intersectable collection
+     *
+     * @param geometries a group of geometrical shapes
+     */
     public void add(Intersectable... geometries){
         geometriesList.addAll(Arrays.asList(geometries));
     }

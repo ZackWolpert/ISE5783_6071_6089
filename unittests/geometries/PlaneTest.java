@@ -63,6 +63,9 @@ class PlaneTest {
            "Plane getNormal function returns wrong normal ");
     }
 
+    /**
+     * Test method for {@link geometries.Plane#findIntersections(primitives.Ray)}.
+     */
     @Test
     void testFindIntersections() {
 

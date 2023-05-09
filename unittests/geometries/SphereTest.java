@@ -27,6 +27,10 @@ class SphereTest {
         assertEquals(new Vector(1, 0, 0),sphere.getNormal(p1),
                 "Sphere getNormal function returns wrong normal");
     }
+
+    /**
+     * Test method for {@link geometries.Sphere#findIntersections(primitives.Ray)}.
+     */
     @Test
     void testFindIntsersections() {
         Sphere sphere = new Sphere(1d, new Point (1, 0, 0));

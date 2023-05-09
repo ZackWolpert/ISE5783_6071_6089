@@ -7,6 +7,9 @@ import primitives.Vector;
 
 import static primitives.Util.isZero;
 
+/**
+ * Camera class represents a camera in 3D Cartesian coordinate system
+ */
 public class Camera {
     private final Point p0;
     private final Vector vRight;

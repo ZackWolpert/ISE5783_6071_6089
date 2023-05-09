@@ -27,20 +27,25 @@ class GeometriesTest {
         // =============== Boundary Values Tests ==================
         // T11: checks find intersections on an empty collection
         Geometries geometries1 = new Geometries();
-        assertNull(geometries1.findIntersections(new Ray(new Point(0, 2, 0), new Vector(0, 1, 0))),
+        assertNull(geometries1.findIntersections(new Ray(new Point(0, 2, 0),
+                        new Vector(0, 1, 0))),
                 "Intersections found on an empty collection");
         // T12: no shape intersects with a body
-        assertNull(geometries.findIntersections(new Ray(new Point(0, 0, 5), new Vector(1, 0, 0))),
+        assertNull(geometries.findIntersections(new Ray(new Point(0, 0, 5),
+                        new Vector(1, 0, 0))),
                 "Intersections found");
         // T13: only one shape intersects
         Geometries geometries2 = new Geometries(triangle, sphere);
-        List<Point> result2 = geometries2.findIntersections(new Ray(new Point(-2, 0, 3),
+        List<Point> result2 = geometries2.findIntersections(new Ray(
+                new Point(-2, 0, 3),
                 new Vector(0, 0, -1)));
         assertEquals(2, result2.size(), "Wrong number of points");
         // T14: all shapes intersects
 
-        Geometries geometries3 = new Geometries(triangle, new Sphere(1,new Point(2, 0, 0)));
-        List<Point> result3 = geometries3.findIntersections(new Ray(new Point(2, 0.25, 4),
+        Geometries geometries3 = new Geometries(triangle,
+                new Sphere(1,new Point(2, 0, 0)));
+        List<Point> result3 = geometries3.findIntersections(
+                new Ray(new Point(2, 0.25, 4),
                 new Vector(0, 0, -1)));
         assertEquals(3, result3.size(), "Wrong number of points");
     }

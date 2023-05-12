@@ -19,7 +19,9 @@ class GeometriesTest {
                 new Point(5, 0, 0));
         Sphere sphere = new Sphere(1,new Point(-2, 0, 0));
         Plane plane = new Plane(new Point(-6, -2, 0), new Vector(0, 0, 1));
+
         Geometries geometries = new Geometries(triangle, sphere, plane);
+
         List<Point> result1 = geometries.findIntersections(new Ray(new Point(-2, 0, 3),
                 new Vector(0, 0, -1)));
         assertEquals(3, result1.size(), "Wrong number of points");

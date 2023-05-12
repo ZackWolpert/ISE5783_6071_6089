@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd0c741-a68b-4882-a693-b95be38f607e" name="Changes" comment="PR04 - Camera + CameraTest + IntegrationTest">
+    <list default="true" id="fdd0c741-a68b-4882-a693-b95be38f607e" name="Changes" comment="javadoc - final touches implementation .">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/geometries/GeometriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/GeometriesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/renderer/IntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/IntegrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +94,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.IntegrationTest">
+  <component name="RunManager" selected="JUnit.All in ISE5783_6071_6089">
     <configuration name="All in ISE5783_6071_6089" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ISE5783_6071_6089" />
       <option name="PACKAGE_NAME" value="" />
@@ -309,7 +309,9 @@
       <workItem from="1683458890761" duration="1286000" />
       <workItem from="1683461354803" duration="165000" />
       <workItem from="1683545246589" duration="2312000" />
-      <workItem from="1683642528107" duration="841000" />
+      <workItem from="1683642528107" duration="2592000" />
+      <workItem from="1683715793293" duration="85000" />
+      <workItem from="1683801988346" duration="1117000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1677014677581</created>
@@ -430,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683546718199</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="javadoc - final touches implementation .">
+      <created>1683643408885</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683643408885</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,6 +470,7 @@
     <MESSAGE value="findIntersections Implementation + Test cases ." />
     <MESSAGE value="javadoc - final touches" />
     <MESSAGE value="PR04 - Camera + CameraTest + IntegrationTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="PR04 - Camera + CameraTest + IntegrationTest" />
+    <MESSAGE value="javadoc - final touches implementation ." />
+    <option name="LAST_COMMIT_MESSAGE" value="javadoc - final touches implementation ." />
   </component>
 </project>

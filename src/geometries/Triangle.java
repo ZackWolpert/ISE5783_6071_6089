@@ -37,8 +37,8 @@ public class Triangle extends Polygon {
         Point p1 = vertices.get(0);
         Point p2 = vertices.get(1);
         Point p3 = vertices.get(2);
-        List<Point> pointList = plane.findIntersections(ray);
-        if (pointList == null)
+        List<Point> points = plane.findIntersections(ray);
+        if (points == null)
             return null;
         // check if they're in the triangle
         Point rayP0 = ray.getP0();
@@ -52,7 +52,7 @@ public class Triangle extends Polygon {
         if (vn1 * vn2 <= 0) return null;
         double vn3 = alignZero(rayDir.dotProduct((v3.crossProduct(v1)).normalize()));
         if (vn1 * vn3 <= 0) return null;
-        return List.of(pointList.get(0));
+        return points;
 
     }
 }

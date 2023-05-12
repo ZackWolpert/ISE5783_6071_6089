@@ -1,5 +1,7 @@
 package primitives;
 
+import static primitives.Util.isZero;
+
 /**
  * A ray class represents a line in 3D space defined by an origin point and a direction vector.
  */
@@ -36,16 +38,11 @@ public class Ray {
         return dir;
     }
 
-    public Point getPoint(double t)
-    {
-        if(t == 0)
-        {
+    public Point getPoint(double t) {
+        if (isZero(t)) {
             return this.p0;
         }
-        else
-        {
-            return this.p0.add(this.dir.scale(t));
-        }
+        return this.p0.add(this.dir.scale(t));
     }
 
     @Override

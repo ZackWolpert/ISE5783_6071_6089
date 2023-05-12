@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd0c741-a68b-4882-a693-b95be38f607e" name="Changes" comment="code refactor - task 4 implementation">
-      <change afterPath="$PROJECT_DIR$/src/primitives/Color.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/ImageWriter.java" afterDir="false" />
+    <list default="true" id="fdd0c741-a68b-4882-a693-b95be38f607e" name="Changes" comment="Color + ImageWriter - implementation">
+      <change afterPath="$PROJECT_DIR$/src/lighting/AmbientLight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/ImageWriterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +93,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ISE5783_6071_6089">
+  <component name="RunManager" selected="JUnit.ImageWriterTest">
     <configuration name="All in ISE5783_6071_6089" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ISE5783_6071_6089" />
       <option name="PACKAGE_NAME" value="" />
@@ -131,6 +133,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ImageWriterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_6071_6089" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.ImageWriterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImageWriterTest.testImg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_6071_6089" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.ImageWriterTest" />
+      <option name="METHOD_NAME" value="testImg" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6071_6089" />
       <extension name="coverage">
@@ -146,45 +179,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IntegrationTest.CameraSphereIntersections" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_6071_6089" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.IntegrationTest" />
-      <option name="METHOD_NAME" value="CameraSphereIntersections" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IntegrationTest.CameraTriangleIntersections" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_6071_6089" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.IntegrationTest" />
-      <option name="METHOD_NAME" value="CameraTriangleIntersections" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ImageWriterTest" />
+        <item itemvalue="JUnit.ImageWriterTest.testImg" />
         <item itemvalue="JUnit.IntegrationTest" />
         <item itemvalue="JUnit.CameraTest" />
         <item itemvalue="JUnit.CameraTest.testConstructRay" />
-        <item itemvalue="JUnit.IntegrationTest.CameraSphereIntersections" />
-        <item itemvalue="JUnit.IntegrationTest.CameraTriangleIntersections" />
       </list>
     </recent_temporary>
   </component>
@@ -310,7 +311,7 @@
       <workItem from="1683715793293" duration="85000" />
       <workItem from="1683801988346" duration="1117000" />
       <workItem from="1683873147418" duration="324000" />
-      <workItem from="1683873484634" duration="447000" />
+      <workItem from="1683873484634" duration="6656000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1677014677581</created>
@@ -445,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683873306599</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Color + ImageWriter - implementation">
+      <created>1683873968911</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1683873968911</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,6 +486,7 @@
     <MESSAGE value="PR04 - Camera + CameraTest + IntegrationTest" />
     <MESSAGE value="javadoc - final touches implementation ." />
     <MESSAGE value="code refactor - task 4 implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="code refactor - task 4 implementation" />
+    <MESSAGE value="Color + ImageWriter - implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Color + ImageWriter - implementation" />
   </component>
 </project>

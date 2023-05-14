@@ -28,9 +28,7 @@ public class RayTracerBasic extends RayTracerBase{
      * Returns Color for given Point
      * @param point The point given .
      */
-    private Color calcColor(Point point){
-        return scene.background;
-    }
+    private Color calcColor(Point point){return scene.ambientLight.getIntensity();}
 
     @Override
     public Color traceRay(Ray ray) {

@@ -136,7 +136,6 @@ public class Camera {
     public Camera renderImage() {
         if (imageWriter == null || rayTracerBase == null)
             throw new MissingResourceException("ERROR", "Camera", "one of the key has not been initialized");
-        int z = 0;
         for (int i = 0; i < imageWriter.getNx(); ++i) {
             for (int j = 0; j < imageWriter.getNy(); ++j) {
                 imageWriter.writePixel(i, j, castRay(imageWriter.getNx(),imageWriter.getNy(),i,j));

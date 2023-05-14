@@ -12,20 +12,49 @@ import java.util.List;
 import java.awt.*;
 import java.util.Arrays;
 
+
+/**
+ * The Scene class represents a scene in a 3D graphics environment.
+ * It contains information such as the name of the scene, the background color,
+ * the ambient light, and the geometries present in the scene.
+ */
 public class Scene {
     public String name = null;
 
     public Geometries geometries = new Geometries();
     public Color background = Color.BLACK;
-    public AmbientLight ambient = AmbientLight.NONE;
+    public AmbientLight ambientLight = AmbientLight.NONE;
+
+    /**
+     * Constructs a Scene object with the specified name.
+     * @param name the name of the scene
+     */
     public Scene(String name) { this.name = name; } // private constructor!
 
-    public Scene setBackground(Color color) { background = color; return this; }
-    public Scene setAmbient(Color color, Double3 ka) {
-        ambient = new AmbientLight(color, ka); return this;
+    /**
+     * Setter of the background color
+     * @param background the background color of the scene
+     * @return the updated scene
+     */
+    public Scene setBackground(Color background) {this.background = background;return this;}
+    /**
+     * Setter of the scene's ambient light
+     * @param ambientLight the ambient color of the scene
+     * @return the updated scene
+     */
+    public Scene setAmbientLight(AmbientLight ambientLight) {this.ambientLight = ambientLight;
+        return this;
     }
-    public Scene addGeometries(Intersectable... geometries) {
-        this.geometries = new Geometries(geometries);return this;
+
+    /**
+     * Setter of the geometries in the scene
+     *
+     * @param geometries a group of all geometries in the scene
+     * @return the updated scene
+     */
+    public Scene setGeometries(Geometries geometries) {
+        this.geometries = geometries;
+        return this;
     }
 
 }

@@ -1,9 +1,10 @@
 package renderer;
 
-import primitives.Point;
-import primitives.Ray;
-import primitives.Util;
-import primitives.Vector;
+import primitives.*;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.MissingResourceException;
 
 import static primitives.Util.isZero;
 
@@ -18,6 +19,9 @@ public class Camera {
     private double height;
     private double width;
     private double distance;
+    private ImageWriter imageWriter;
+    private RayTracerBase rayTracerBase;
+
     /**
      * Constructor of Camera using p0, up-vector and to-vector
      *
@@ -58,6 +62,24 @@ public class Camera {
     public Camera setVPDistance(double distance) {
         this.distance = distance;
         return this;
+    }
+
+    /**
+     * Updates the cameras image writer
+     * @param imageWriter responsible for holding image related parameters of View Plane
+     * @return The updated camera
+     */
+    public Camera setImageWriter(ImageWriter imageWriter) {
+        this.imageWriter = imageWriter;return this;
+    }
+
+    /**
+     * Updates the cameras ray tracer
+     * @param rayTracerBasic calculates the color of the point
+     * @return The updated camera
+     */
+    public Camera setRayTracer(RayTracerBasic rayTracerBasic) {
+        this.rayTracerBase = rayTracerBasic;return this;
     }
 
     /**
@@ -106,5 +128,52 @@ public class Camera {
         if (!isZero(xJ)) pIJ = pIJ.add(vRight.scale(xJ));
         if (!isZero(yI)) pIJ = pIJ.add(vUp.scale(yI));
         return new Ray(p0, pIJ.subtract(p0));
+    }
+
+    /**
+     * Renders the Image while throwing an exception if values are not initialized
+     */
+    public Camera renderImage() {
+        if (imageWriter == null || rayTracerBase == null)
+            throw new MissingResourceException("ERROR", "Camera", "one of the key has not been initialized");
+        int z = 0;
+        for (int i = 0; i < imageWriter.getNx(); ++i) {
+            for (int j = 0; j < imageWriter.getNy(); ++j) {
+                imageWriter.writePixel(i, j, castRay(imageWriter.getNx(),imageWriter.getNy(),i,j));
+            }
+        }
+        return this;
+    }
+    public Color castRay(int nX,int nY,int i,int j){
+        return rayTracerBase.traceRay(constructRay(imageWriter.getNx(), imageWriter.getNy(), i, j));
+
+    }
+
+    /**
+     * Prints the color on to the images grid
+     * @param interval the distance between the grid 'blocks'
+     * @param color the color of the grid
+     */
+    public void printGrid(int interval,Color color){
+        if (imageWriter == null)
+            throw new MissingResourceException("ERROR", "Camera", "imageWriter");
+        int nX = imageWriter.getNx();
+        int nY = imageWriter.getNy();
+        for (int i = 0; i < nX; ++i) {
+            for (int j = 0; j < nY; ++j) {
+                if (i % interval == 0 || j % interval == 0)
+                    imageWriter.writePixel(i, j, color);
+            }
+        }
+
+    }
+
+    /**
+     * Writes the data To the image file
+     */
+    public void writeToImage() {
+        if (imageWriter == null)
+            throw new MissingResourceException("ERROR", "Camera", "imageWriter");
+        imageWriter.writeToImage();
     }
 }

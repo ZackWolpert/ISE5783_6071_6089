@@ -5,6 +5,9 @@ package primitives;
  * It encapsulates a Double3 object to store its x, y, and z coordinates.
  */
 public class Point {
+
+    /** Zero Point (0,0,0) */
+    public static final Point ZERO = new Point(0,0,0);
     /**
      * The Double3 object storing the x, y, and z coordinates of the point.
      */

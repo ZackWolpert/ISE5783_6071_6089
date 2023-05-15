@@ -41,9 +41,21 @@ public class Point {
     public double getX() {
         return xyz.d1;
     }
+
+    /**
+     * Gets the y coordinate of the point
+     *
+     * @return the coordinate
+     */
     public double getY() {
         return xyz.d2;
     }
+
+    /**
+     * Gets the z coordinate of the point
+     *
+     * @return the coordinate
+     */
     public double getZ() {
         return xyz.d3;
     }

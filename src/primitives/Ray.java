@@ -3,6 +3,7 @@ package primitives;
 import java.util.List;
 
 import static primitives.Util.isZero;
+import geometries.Intersectable.GeoPoint;
 
 /**
  * A ray class represents a line in 3D space defined by an origin point and a direction vector.
@@ -40,6 +41,26 @@ public class Ray {
             }
         }
         return point;
+    }
+
+    /**
+     * Finds the closest GeoPoint in a list of GeoPoints to a given reference point.
+     * @param geoPoints The list of GeoPoints to search for the closest point.
+     * @return The closest GeoPoint to the reference point.
+     */
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> geoPoints){
+        if (geoPoints == null){
+            return null;
+        }
+        double distance = p0.distance(geoPoints.get(0).point);
+        GeoPoint geoPointRet = geoPoints.get(0);
+        for(int i = 0;i<geoPoints.size();i++){
+            if(p0.distance(geoPoints.get(i).point) < distance){
+                distance = p0.distance(geoPoints.get(i).point);
+                geoPointRet = geoPoints.get(i);
+            }
+        }
+        return geoPointRet;
     }
 
     /**

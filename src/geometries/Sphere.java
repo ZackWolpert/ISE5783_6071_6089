@@ -4,6 +4,7 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -46,6 +47,7 @@ public class Sphere extends RadialGeometry {
         return other.subtract(myZeroPoint).scale(2).normalize();
 
     }
+
     /**
      * Find the intersections between a sphere and a ray.
      *
@@ -61,39 +63,39 @@ public class Sphere extends RadialGeometry {
             double b = w.scale(2).dotProduct(ray.getDir());
             double c = w.lengthSquared() - radius * radius;
             // now we use the quadratic formula - to get points
-                if(b*b-4*a*c > 0 ){ // check if this is > 0 for the sqrt .
-                    double t1 = alignZero((-b + Math.sqrt(b * b - 4 * a * c)) / 2 * a);
-                    double t2 = alignZero((-b - Math.sqrt(b * b - 4 * a * c)) / 2 * a);
-                    if(w.length()<radius){
-                        if(t1>0){ // return only point of ray intersection ( not of opposite direction )
-                            return List.of(ray.getPoint(t1));
-                        } else{
+            if(b*b-4*a*c > 0 ){ // check if this is > 0 for the sqrt .
+                double t1 = alignZero((-b + Math.sqrt(b * b - 4 * a * c)) / 2 * a);
+                double t2 = alignZero((-b - Math.sqrt(b * b - 4 * a * c)) / 2 * a);
+                if(w.length()<radius){
+                    if(t1>0){ // return only point of ray intersection ( not of opposite direction )
+                        return List.of(ray.getPoint(t1));
+                    } else{
+                        return List.of(ray.getPoint(t2));
+                    }
+                } else if(w.length() == radius){ // then there can be only one intersection point - or none .
+                    if(isZero(t1)){
+                        if(t2 <= 0){ // there is intersection but with opposite direction of ray - so no intersection points,we return null .
+                            return null;
+                        } else {// there is one intersection point of real direction of ray - so we return it .
                             return List.of(ray.getPoint(t2));
                         }
-                    } else if(w.length() == radius){ // then there can be only one intersection point - or none .
-                        if(isZero(t1)){
-                            if(t2 <= 0){ // there is intersection but with opposite direction of ray - so no intersection points,we return null .
-                                return null;
-                            } else {// there is one intersection point of real direction of ray - so we return it .
-                                return List.of(ray.getPoint(t2));
-                            }
-                        } else {
-                            if(t1 <= 0){ // there is intersection but with opposite direction of ray - so no intersection points,we return null .
-                                return null;
-                            }else { // there is one intersection point of real direction of ray - so we return it .
-                                return List.of(ray.getPoint(t1));
-                            }
-                        }
-                    } else { // there could be two intersection points - or none - dependent on ray direction
-                        if(t1<0 && t2<0){
-                            return null; // there are two intersection points - but with opposite direction of ray - so we return null.
-                        }
-                        else { // there are two real intersection points .
-                            return List.of(ray.getPoint(t1),ray.getPoint(t2));
+                    } else {
+                        if(t1 <= 0){ // there is intersection but with opposite direction of ray - so no intersection points,we return null .
+                            return null;
+                        }else { // there is one intersection point of real direction of ray - so we return it .
+                            return List.of(ray.getPoint(t1));
                         }
                     }
-                } else
-                    return null;
+                } else { // there could be two intersection points - or none - dependent on ray direction
+                    if(t1<0 && t2<0){
+                        return null; // there are two intersection points - but with opposite direction of ray - so we return null.
+                    }
+                    else { // there are two real intersection points .
+                        return List.of(ray.getPoint(t1),ray.getPoint(t2));
+                    }
+                }
+            } else
+                return null;
         }catch (IllegalArgumentException zeroVector){ // if P0 is same point as center - we calculate accordingly
             double a = ray.getDir().lengthSquared();
             double b = 0;
@@ -106,5 +108,21 @@ public class Sphere extends RadialGeometry {
                 return List.of(ray.getPoint(t2));
             }
         }
+    }
+
+    /**
+     * Find the intersections between a sphere and a ray.
+     *
+     * @param ray the ray to intersect with the sphere.
+     * @return a List of GeoPoint objects representing the intersections.
+     */
+    @Override
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        List<GeoPoint> geoPoints = new LinkedList<>();
+        if(findIntersections(ray) == null){return null;}
+        for (Point point : findIntersections(ray)){
+            geoPoints.add(new GeoPoint(this,point));
+        }
+        return geoPoints;
     }
 }

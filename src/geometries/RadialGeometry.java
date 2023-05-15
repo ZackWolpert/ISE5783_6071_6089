@@ -7,7 +7,7 @@ import primitives.Vector;
  * The RadialGeometry abstract class represents a geometry with a radial component, such as a sphere or a cylinder.
  * It implements the Geometry interface and provides a radius property.
  */
-public abstract class RadialGeometry implements Geometry {
+public abstract class RadialGeometry extends Geometry {
     /**
      * The radius of the radial geometry.
      */

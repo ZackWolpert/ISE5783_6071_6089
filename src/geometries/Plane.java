@@ -5,12 +5,13 @@ import primitives.Ray;
 import primitives.Vector;
 import primitives.Util;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
-public class Plane implements Geometry {
+public class Plane extends Geometry {
     private final Point p0;
     private final Vector normal;
 
@@ -88,5 +89,21 @@ public class Plane implements Geometry {
         }catch (IllegalArgumentException zeroVector) {
             return null;
         }
+    }
+
+    /**
+     * Find the intersections between a plane and a ray.
+     *
+     * @param ray the ray to intersect with the plane.
+     * @return a List of GeoPoint objects representing the intersections.
+     */
+    @Override
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        if(findIntersections(ray) == null){return null;}
+        List<GeoPoint> geoPoints = new LinkedList<>();
+        for (Point point : findIntersections(ray)){
+            geoPoints.add(new GeoPoint(this,point));
+        }
+        return geoPoints;
     }
 }

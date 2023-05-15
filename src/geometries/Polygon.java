@@ -11,7 +11,7 @@ import primitives.Vector;
 /** Polygon class represents two-dimensional polygon in 3D Cartesian coordinate.
  * system
  * @author Dan */
-public class Polygon implements Geometry{
+public class Polygon extends Geometry{
    /** List of polygon's vertices */
    protected final List<Point> vertices;
    /** Associated plane in which the polygon lays */
@@ -89,6 +89,17 @@ public class Polygon implements Geometry{
     */
    @Override
    public List<Point> findIntersections(Ray ray) {
+      return null;
+   }
+
+   /**
+    * Find the intersections between a polygon and a ray.
+    *
+    * @param ray the ray to intersect with the polygon.
+    * @return a List of GeoPoint objects representing the intersections.
+    */
+   @Override
+   public List<GeoPoint> findGeoIntersections(Ray ray) {
       return null;
    }
 }

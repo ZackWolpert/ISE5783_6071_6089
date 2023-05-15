@@ -4,6 +4,7 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import static primitives.Util.alignZero;
@@ -54,5 +55,21 @@ public class Triangle extends Polygon {
         if (vn1 * vn3 <= 0) return null;
         return points;
 
+    }
+
+    /**
+     * Find the intersections between a triangle and a ray.
+     *
+     * @param ray the ray to intersect with the triangle.
+     * @return a List of GeoPoint objects representing the intersections.
+     */
+    @Override
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        if(findIntersections(ray) == null){return null;}
+        List<GeoPoint> geoPoints = new LinkedList<>();
+        for (Point point : findIntersections(ray)){
+            geoPoints.add(new GeoPoint(this,point));
+        }
+        return geoPoints;
     }
 }

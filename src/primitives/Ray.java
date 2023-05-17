@@ -28,19 +28,9 @@ public class Ray {
      * @param points The list of points to search for the closest point.
      * @return The closest point to the reference point.
      */
-    public Point findClosestPoint(List<Point> points){
-        if (points == null){
-            return null;
-        }
-        double distance = p0.distance(points.get(0));
-        Point point = points.get(0);
-        for(int i = 0;i<points.size();i++){
-            if(p0.distance(points.get(i)) < distance){
-                distance = p0.distance(points.get(i));
-                point = points.get(i);
-            }
-        }
-        return point;
+    public Point findClosestPoint(List<Point> points) {
+        return points == null || points.isEmpty() ? null
+                : findClosestGeoPoint(points.stream().map(p -> new GeoPoint(null, p)).toList()).point;
     }
 
     /**

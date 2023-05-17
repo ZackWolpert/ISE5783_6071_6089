@@ -30,16 +30,16 @@ public class Triangle extends Polygon {
      * Find the intersections between a triangle and a ray.
      *
      * @param ray the ray to intersect with the triangle.
-     * @return a List of Point objects representing the intersections.
+     * @return a List of GeoPoint objects representing the intersections.
      */
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         // find intersections with plane of triangle
         Point p1 = vertices.get(0);
         Point p2 = vertices.get(1);
         Point p3 = vertices.get(2);
-        List<Point> points = plane.findIntersections(ray);
-        if (points == null)
+        List<GeoPoint> geoPoints = plane.findGeoIntersectionsHelper(ray); // color yet to be implemented
+        if (geoPoints == null)
             return null;
         // check if they're in the triangle
         Point rayP0 = ray.getP0();
@@ -53,23 +53,10 @@ public class Triangle extends Polygon {
         if (vn1 * vn2 <= 0) return null;
         double vn3 = alignZero(rayDir.dotProduct((v3.crossProduct(v1)).normalize()));
         if (vn1 * vn3 <= 0) return null;
-        return points;
-
-    }
-
-    /**
-     * Find the intersections between a triangle and a ray.
-     *
-     * @param ray the ray to intersect with the triangle.
-     * @return a List of GeoPoint objects representing the intersections.
-     */
-    @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-        if(findIntersections(ray) == null){return null;}
-        List<GeoPoint> geoPoints = new LinkedList<>();
-        for (Point point : findIntersections(ray)){
-            geoPoints.add(new GeoPoint(this,point));
+        List<GeoPoint> geoPointsRet = new LinkedList<>();
+        for (GeoPoint geoPoint : geoPoints){
+            geoPointsRet.add(new GeoPoint(this,geoPoint.point)); // need to implement this to add emission color .
         }
-        return geoPoints;
+        return geoPointsRet;
     }
 }

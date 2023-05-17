@@ -1,9 +1,6 @@
 package geometries;
 
-import primitives.Point;
-import primitives.Ray;
-import primitives.Vector;
-import primitives.Util;
+import primitives.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -69,10 +66,10 @@ public class Plane extends Geometry {
      * Find the intersections between a plane and a ray.
      *
      * @param ray the ray to intersect with the plane.
-     * @return a List of Point objects representing the intersections.
+     * @return a List of GeoPoint objects representing the intersections.
      */
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         Vector rayDir = ray.getDir();
         Point rayP0 = ray.getP0();
         try{
@@ -84,26 +81,10 @@ public class Plane extends Geometry {
             else {
                 double t = alignZero(v.dotProduct(normal)/denominator);
                 if(isZero(t) || t < 0){return null;}
-                else{return  List.of(ray.getPoint(t));}
+                else{return  List.of(new GeoPoint(this,ray.getPoint(t)));}
             }
         }catch (IllegalArgumentException zeroVector) {
             return null;
         }
-    }
-
-    /**
-     * Find the intersections between a plane and a ray.
-     *
-     * @param ray the ray to intersect with the plane.
-     * @return a List of GeoPoint objects representing the intersections.
-     */
-    @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-        if(findIntersections(ray) == null){return null;}
-        List<GeoPoint> geoPoints = new LinkedList<>();
-        for (Point point : findIntersections(ray)){
-            geoPoints.add(new GeoPoint(this,point));
-        }
-        return geoPoints;
     }
 }

@@ -23,14 +23,4 @@ public class AmbientLight extends Light {
         super(new Color(Ia.scale(Ka).getColor()));
     }
 
-    ///**
-    // * Constructs an AmbientLight object with the specified ambient reflection coefficient - sending the Color to super constructor ( Light ).
-    // * The intensity of the ambient light is calculated based on the default intensity and the given coefficient.
-    // * @param Ka The ambient reflection coefficient as a double value.
-    // */
-   // public AmbientLight(double Ka){
-   //     Color color = getIntensity().scale(Ka);
-    //    super(color);
-    //}
-
 }

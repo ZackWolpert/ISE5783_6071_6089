@@ -54,6 +54,34 @@ public abstract class Intersectable {
     }
 
     /**
+     * Finds all intersection points and its geometries between the geometry and a ray
+     *
+     * @param ray the ray to intersect with
+     * @return list of all the intersection points with their geometries
+     */
+    public final List<GeoPoint> findGeoIntersections(Ray ray) {
+        return findGeoIntersections(ray, Double.POSITIVE_INFINITY);
+    }
+
+    /**
+     * finds intersections between a shape and a ray where distance to ray head is smaller than max distance
+     * @param ray the ray to intersect with
+     * @param maxDistance maximum distance to ray head for returned points.
+     * @return list of intersection points with corresponding geometries
+     */
+
+    public final List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
+        return findGeoIntersectionsHelper(ray, maxDistance);
+    }
+
+    /**
+     * Finds all intersection points and its geometries between the geometry and a ray - helper function
+     * @param ray the ray to intersect with
+     * @return list of all the intersection points with their geometries
+     */
+    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance);
+
+    /**
      * Find the intersections between an intersectable object and a ray.
      * @param ray the ray to intersect with the object.
      * @return a List of Point objects representing the intersections.
@@ -63,19 +91,4 @@ public abstract class Intersectable {
         return geoList == null ? null : geoList.stream().map(gp -> gp.point).toList();
     }
 
-    /**
-     * Finds all intersection points and its geometries between the geometry and a ray
-     * @param ray the ray to intersect with
-     * @return list of all the intersection points with their geometries
-     */
-    public List<GeoPoint> findGeoIntersections(Ray ray) {
-        return findGeoIntersectionsHelper(ray);
-    }
-
-    /**
-     * Finds all intersection points and its geometries between the geometry and a ray - helper function
-     * @param ray the ray to intersect with
-     * @return list of all the intersection points with their geometries
-     */
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray){return null;}
 }

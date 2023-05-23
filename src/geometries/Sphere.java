@@ -54,7 +54,7 @@ public class Sphere extends RadialGeometry {
      * @return a List of GeoPoint objects representing the intersections.
      */
     @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
         // check if point is inside sphere
         try { // if P0 point of ray is same as center - this would throw ZERO Vector Exeption .
             Vector w = ray.getP0().subtract(center);
@@ -65,32 +65,19 @@ public class Sphere extends RadialGeometry {
             if(b*b-4*a*c > 0 ){ // check if this is > 0 for the sqrt .
                 double t1 = alignZero((-b + Math.sqrt(b * b - 4 * a * c)) / 2 * a);
                 double t2 = alignZero((-b - Math.sqrt(b * b - 4 * a * c)) / 2 * a);
-                if(w.length()<radius){
-                    if(t1>0){ // return only point of ray intersection ( not of opposite direction )
+                if(t1>0 && alignZero(t1-maxDistance) <= 0){ // return only point of ray intersection ( not of opposite direction )
+                    if(t2>0 && alignZero(t2-maxDistance) <= 0){
+                        return List.of(new GeoPoint(this,ray.getPoint(t1)),new GeoPoint(this,ray.getPoint(t2)));
+                    }
+                    else{
                         return List.of(new GeoPoint(this,ray.getPoint(t1)));
-                    } else{
+                    }
+                } else{
+                    if(t2>0 && alignZero(t2-maxDistance) <= 0){
                         return List.of(new GeoPoint(this,ray.getPoint(t2)));
                     }
-                } else if(w.length() == radius){ // then there can be only one intersection point - or none .
-                    if(isZero(t1)){
-                        if(t2 <= 0){ // there is intersection but with opposite direction of ray - so no intersection points,we return null .
-                            return null;
-                        } else {// there is one intersection point of real direction of ray - so we return it .
-                            return List.of(new GeoPoint(this,ray.getPoint(t2)));
-                        }
-                    } else {
-                        if(t1 <= 0){ // there is intersection but with opposite direction of ray - so no intersection points,we return null .
-                            return null;
-                        }else { // there is one intersection point of real direction of ray - so we return it .
-                            return List.of(new GeoPoint(this,ray.getPoint(t1)));
-                        }
-                    }
-                } else { // there could be two intersection points - or none - dependent on ray direction
-                    if(t1<0 && t2<0){
-                        return null; // there are two intersection points - but with opposite direction of ray - so we return null.
-                    }
-                    else { // there are two real intersection points .
-                        return List.of(new GeoPoint(this,ray.getPoint(t1)),new GeoPoint(this,ray.getPoint(t2)));
+                    else{
+                        return null;
                     }
                 }
             } else
@@ -101,10 +88,16 @@ public class Sphere extends RadialGeometry {
             double c =  - radius * radius;
             double t1 = alignZero((-b + Math.sqrt(b * b - 4 * a * c)) / 2 * a);
             double t2 = alignZero((-b - Math.sqrt(b * b - 4 * a * c)) / 2 * a);
-            if(t1>0){ // we take the point where t > 0 - which is the intersection with real direction of ray .
+            if(t1>0 && alignZero(t1-maxDistance) <= 0){ // we take the point where t > 0 - which is the intersection with real direction of ray .
                 return List.of(new GeoPoint(this,ray.getPoint(t1)));
             } else{
-                return List.of(new GeoPoint(this,ray.getPoint(t2)));
+                if(alignZero(t2-maxDistance) <= 0)
+                {
+                    return List.of(new GeoPoint(this,ray.getPoint(t2)));
+                }
+                else{
+                    return null;
+                }
             }
         }
     }

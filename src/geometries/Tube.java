@@ -71,7 +71,7 @@ public class Tube extends RadialGeometry {
      * @return a List of GeoPoint objects representing the intersections.
      */
     @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {return null;}
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {return null;}
 
 
 }

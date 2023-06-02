@@ -13,6 +13,11 @@ public class Ray {
     private final Vector dir;
 
     /**
+     * head of ray offset size for shading rays
+     */
+    private static final double DELTA = 0.1;
+
+    /**
      * Constructs a new ray with the given origin point and direction vector.
      *
      * @param p0  the origin point of the ray
@@ -23,6 +28,20 @@ public class Ray {
         this.dir = dir.normalize();
     }
 
+    /**
+     * constructor for construction a ray with moved head in delta direction
+     * @param p0 initial head of ray
+     * @param direction direction of ray
+     * @param normal normal to geometry
+     */
+    public Ray(Point p0, Vector direction, Vector normal){
+        double ln = direction.dotProduct(normal);
+        if (ln < 0) {
+            normal = normal.scale(-1);
+        }
+        this.p0 = p0.add(normal.scale(DELTA));
+        this.dir = direction;
+    }
     /**
      * Finds the closest point in a list of points to a given reference point.
      * @param points The list of points to search for the closest point.

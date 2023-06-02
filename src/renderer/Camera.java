@@ -2,8 +2,6 @@ package renderer;
 
 import primitives.*;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.MissingResourceException;
 
 import static primitives.Util.isZero;
@@ -20,7 +18,7 @@ public class Camera {
     private double width;
     private double distance;
     private ImageWriter imageWriter;
-    private RayTracerBase rayTracerBase;
+    private RayTracerBase rayTracer;
 
     /**
      * Constructor of Camera using p0, up-vector and to-vector
@@ -70,16 +68,18 @@ public class Camera {
      * @return The updated camera
      */
     public Camera setImageWriter(ImageWriter imageWriter) {
-        this.imageWriter = imageWriter;return this;
+        this.imageWriter = imageWriter;
+        return this;
     }
 
     /**
      * Updates the cameras ray tracer
-     * @param rayTracerBasic calculates the color of the point
+     * @param rayTracer calculates the color of the point
      * @return The updated camera
      */
-    public Camera setRayTracer(RayTracerBasic rayTracerBasic) {
-        this.rayTracerBase = rayTracerBasic;return this;
+    public Camera setRayTracer(RayTracerBasic rayTracer) {
+        this.rayTracer = rayTracer;
+        return this;
     }
 
     /**
@@ -134,17 +134,23 @@ public class Camera {
      * Renders the Image while throwing an exception if values are not initialized
      */
     public Camera renderImage() {
-        if (imageWriter == null || rayTracerBase == null)
+        if (imageWriter == null || rayTracer == null)
             throw new MissingResourceException("ERROR", "Camera", "one of the key has not been initialized");
-        for (int i = 0; i < imageWriter.getNx(); ++i) {
-            for (int j = 0; j < imageWriter.getNy(); ++j) {
-                imageWriter.writePixel(i, j, castRay(imageWriter.getNx(),imageWriter.getNy(),i,j));
+
+        int nX = imageWriter.getNx();
+        int nY = imageWriter.getNy();
+
+        for (int i = 0; i < nX; ++i) {
+            for (int j = 0; j < nY; ++j) {
+                Color color = castRay(nX, nY, i, j);
+                imageWriter.writePixel(i, j, color);
             }
         }
         return this;
     }
     public Color castRay(int nX,int nY,int i,int j){
-        return rayTracerBase.traceRay(constructRay(imageWriter.getNx(), imageWriter.getNy(), i, j));
+        Ray ray = constructRay(nX, nY, i, j);
+        return rayTracer.traceRay(ray);
 
     }
 

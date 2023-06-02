@@ -33,7 +33,7 @@ public class Triangle extends Polygon {
      * @return a List of GeoPoint objects representing the intersections.
      */
     @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
         // find intersections with plane of triangle
         Point p1 = vertices.get(0);
         Point p2 = vertices.get(1);

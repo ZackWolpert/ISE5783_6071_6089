@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd0c741-a68b-4882-a693-b95be38f607e" name="Changes" comment="PR07.1 - adding shading Completion !">
+    <list default="true" id="fdd0c741-a68b-4882-a693-b95be38f607e" name="Changes" comment="Material - kR,kT set.">
+      <change afterPath="$PROJECT_DIR$/unittests/renderer/ReflectionRefractionPictureTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unittests/renderer/ReflectionRefractionTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +100,7 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ISE5783_6071_6089">
+  <component name="RunManager" selected="JUnit.ReflectionRefractionPictureTest.poker">
     <configuration name="All in ISE5783_6071_6089" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ISE5783_6071_6089" />
       <option name="PACKAGE_NAME" value="" />
@@ -114,22 +124,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LightsTests.sphereAllTypeLighting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_6071_6089" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lighting.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="lighting" />
-      <option name="MAIN_CLASS_NAME" value="lighting.LightsTests" />
-      <option name="METHOD_NAME" value="sphereAllTypeLighting" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LightsTests.trianglesAllTypeLighting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6071_6089" />
       <extension name="coverage">
@@ -142,6 +136,37 @@
       <option name="MAIN_CLASS_NAME" value="lighting.LightsTests" />
       <option name="METHOD_NAME" value="trianglesAllTypeLighting" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReflectionRefractionPictureTest.poker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_6071_6089" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.ReflectionRefractionPictureTest" />
+      <option name="METHOD_NAME" value="poker" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReflectionRefractionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_6071_6089" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.ReflectionRefractionTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,29 +186,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SphereTest.testFindIntsersections" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_6071_6089" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="geometries.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.SphereTest" />
-      <option name="METHOD_NAME" value="testFindIntsersections" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ShadowTests" />
-        <item itemvalue="JUnit.LightsTests" />
-        <item itemvalue="JUnit.SphereTest.testFindIntsersections" />
+        <item itemvalue="JUnit.ReflectionRefractionPictureTest.poker" />
+        <item itemvalue="JUnit.ReflectionRefractionTests" />
         <item itemvalue="JUnit.LightsTests.trianglesAllTypeLighting" />
-        <item itemvalue="JUnit.LightsTests.sphereAllTypeLighting" />
+        <item itemvalue="JUnit.LightsTests" />
+        <item itemvalue="JUnit.ShadowTests" />
       </list>
     </recent_temporary>
   </component>
@@ -332,7 +341,16 @@
       <workItem from="1684772278433" duration="2045000" />
       <workItem from="1684838789172" duration="607000" />
       <workItem from="1684841395424" duration="2931000" />
-      <workItem from="1684851367855" duration="1028000" />
+      <workItem from="1684851367855" duration="3639000" />
+      <workItem from="1684862713802" duration="728000" />
+      <workItem from="1685005146450" duration="483000" />
+      <workItem from="1685282300604" duration="44000" />
+      <workItem from="1685307041640" duration="1000" />
+      <workItem from="1685381285498" duration="19000" />
+      <workItem from="1685540625150" duration="597000" />
+      <workItem from="1685601677520" duration="5605000" />
+      <workItem from="1685619955535" duration="1344000" />
+      <workItem from="1685631101924" duration="598000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1677014677581</created>
@@ -544,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684851699845</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Material - kR,kT set.">
+      <created>1684852445130</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1684852445130</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,6 +611,7 @@
     <MESSAGE value="sphere getNormal function correction + PR06 !" />
     <MESSAGE value="PR06 - final tests all types of lighting + finish ." />
     <MESSAGE value="PR07.1 - adding shading Completion !" />
-    <option name="LAST_COMMIT_MESSAGE" value="PR07.1 - adding shading Completion !" />
+    <MESSAGE value="Material - kR,kT set." />
+    <option name="LAST_COMMIT_MESSAGE" value="Material - kR,kT set." />
   </component>
 </project>

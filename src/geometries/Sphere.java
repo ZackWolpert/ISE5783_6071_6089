@@ -54,7 +54,7 @@ public class Sphere extends RadialGeometry {
      * @return a List of GeoPoint objects representing the intersections.
      */
     @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
         // check if point is inside sphere
         try { // if P0 point of ray is same as center - this would throw ZERO Vector Exeption .
             Vector w = ray.getP0().subtract(center);
